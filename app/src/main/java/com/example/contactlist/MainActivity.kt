@@ -53,6 +53,10 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
         binding.fabAddContact.setOnClickListener {
             startActivity(Intent(this, AddContactActivity::class.java))
         }
+
+        binding.fabEditContact.setOnClickListener {
+            startActivity(Intent(this, EditContactActivity::class.java))
+        }
     }
 
     override fun onDestroy() {
