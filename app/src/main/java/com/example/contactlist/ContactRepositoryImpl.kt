@@ -18,9 +18,8 @@ class ContactRepositoryImpl(
         }
     }
 
-    override fun editContact(name: String, surname: String, number: String) {
+    override fun editContact() {
         realm.executeTransaction {
-
         }
     }
 

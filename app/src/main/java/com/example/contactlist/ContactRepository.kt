@@ -6,7 +6,7 @@ interface ContactRepository {
 
     fun addContact(name: String, surname: String, number: String)
 
-    fun editContact(name: String, surname: String, number: String)
+    fun editContact()
 
     fun getContact(): List<Contact>
 }

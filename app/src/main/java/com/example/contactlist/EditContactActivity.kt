@@ -23,7 +23,9 @@ class EditContactActivity: AppCompatActivity(), MainAction {
         binding = ActivityEditContactBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.btnSaveEdit.setOnClickListener {
 
+        }
 
 
         binding.btnCancel.setOnClickListener {
