@@ -1,7 +1,8 @@
-package com.example.contactlist
+package com.example.contactlist.temporarily
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
+import com.example.contactlist.temporarily.Contact
 
 
 class ContactLiveData : MutableLiveData<List<Contact>>() {

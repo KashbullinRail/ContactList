@@ -3,6 +3,8 @@ package com.example.contactlist
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.contactlist.temporarily.Contact
+import com.example.contactlist.temporarily.ContactLiveData
 
 
 class MainViewModel(private val contactRepository: ContactRepository) : ViewModel() {

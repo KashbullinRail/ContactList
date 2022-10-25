@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.contactlist.databinding.ActivityAddContactBinding
 import com.example.contactlist.presenter.MainAction
+import com.example.contactlist.temporarily.Contact
 import org.koin.android.ext.android.inject
 
 

@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.contactlist.databinding.ItemContactBinding
+import com.example.contactlist.temporarily.Contact
 
 
 class ContactsAdapter() :

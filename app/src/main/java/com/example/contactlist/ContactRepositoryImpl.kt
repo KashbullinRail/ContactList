@@ -1,5 +1,6 @@
 package com.example.contactlist
 
+import com.example.contactlist.temporarily.Contact
 import io.realm.Realm
 import java.util.*
 

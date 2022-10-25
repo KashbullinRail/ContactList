@@ -1,4 +1,4 @@
-package com.example.contactlist
+package com.example.contactlist.temporarily
 
 data class FakeContact(
     val name: String,
