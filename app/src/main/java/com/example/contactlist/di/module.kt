@@ -1,4 +1,4 @@
-package com.example.realmdatabase.di
+package com.example.contactlist.di
 
 import com.example.contactlist.ContactRepository
 import com.example.contactlist.ContactRepositoryImpl

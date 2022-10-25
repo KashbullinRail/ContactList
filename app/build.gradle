@@ -38,7 +38,8 @@ android {
 
 dependencies {
 
-    def koin_version = '3.1.5'
+    def koin_version = "3.2.2"
+    def koin_android_version = "3.2.3"
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
@@ -51,7 +52,17 @@ dependencies {
 
     // Koin Core features
     implementation "io.insert-koin:koin-core:$koin_version"
-    implementation "io.insert-koin:koin-android:$koin_version"
     // Koin Test features
     testImplementation "io.insert-koin:koin-test:$koin_version"
+
+    // Koin for JUnit 4
+    testImplementation "io.insert-koin:koin-test-junit4:$koin_version"
+    // Koin for JUnit 5
+    testImplementation "io.insert-koin:koin-test-junit5:$koin_version"
+
+    // Koin main features for Android
+    implementation "io.insert-koin:koin-android:$koin_android_version"
+    // No more koin-android-viewmodel, koin-android-scope, koin-android-fragment
+
+
 }

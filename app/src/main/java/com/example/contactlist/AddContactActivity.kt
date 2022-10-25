@@ -1,10 +1,11 @@
 package com.example.contactlist
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.contactlist.databinding.ActivityAddContactBinding
-import com.example.realmdatabase.presenter.MainAction
+import com.example.contactlist.presenter.MainAction
 import org.koin.android.ext.android.inject
 
 
@@ -29,6 +30,8 @@ class AddContactActivity : AppCompatActivity(), MainAction {
                     surname = etSurname.text.toString(),
                     number = etNumber.text.toString()
                 )
+                startActivity(Intent(this@AddContactActivity, MainActivity::class.java))
+                finish()
             }
         }
     }

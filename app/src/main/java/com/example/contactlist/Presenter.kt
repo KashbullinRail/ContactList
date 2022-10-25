@@ -1,6 +1,6 @@
 package com.example.contactlist
 
-import com.example.realmdatabase.presenter.MainAction
+import com.example.contactlist.presenter.MainAction
 
 
 class Presenter(private val contactRepository: ContactRepository) {
