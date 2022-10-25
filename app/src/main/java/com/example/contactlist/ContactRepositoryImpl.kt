@@ -2,6 +2,7 @@ package com.example.contactlist
 
 import com.example.contactlist.temporarily.Contact
 import io.realm.Realm
+import io.realm.Sort
 import java.util.*
 
 
@@ -20,10 +21,12 @@ class ContactRepositoryImpl(
 
     override fun editContact() {
         realm.executeTransaction {
+
         }
     }
 
     override fun getContact(): List<Contact> {
-        return realm.where(Contact::class.java).findAll()
+        return realm.where(Contact::class.java).findAll().sort("name", Sort.ASCENDING)
     }
+
 }

@@ -9,4 +9,5 @@ interface ContactRepository {
     fun editContact()
 
     fun getContact(): List<Contact>
+
 }
