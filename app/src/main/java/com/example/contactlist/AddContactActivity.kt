@@ -35,6 +35,12 @@ class AddContactActivity : AppCompatActivity(), MainAction {
                 finish()
             }
         }
+
+        binding.btnCancel.setOnClickListener {
+            startActivity(Intent(this@AddContactActivity, MainActivity::class.java))
+            finish()
+        }
+
     }
 
     override fun onAddContact(contacts: List<Contact>) {
