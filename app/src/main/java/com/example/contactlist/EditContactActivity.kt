@@ -10,7 +10,7 @@ import com.example.contactlist.temporarily.Contact
 import org.koin.android.ext.android.inject
 
 
-class AddContactActivity : AppCompatActivity(), MainAction {
+class EditContactActivity: AppCompatActivity(), MainAction {
 
     private lateinit var binding: ActivityAddContactBinding
 
@@ -31,7 +31,7 @@ class AddContactActivity : AppCompatActivity(), MainAction {
                     surname = etSurname.text.toString(),
                     number = etNumber.text.toString()
                 )
-                startActivity(Intent(this@AddContactActivity, MainActivity::class.java))
+                startActivity(Intent(this@EditContactActivity, MainActivity::class.java))
                 finish()
             }
         }

@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Users/Public/Documents/Android/ContactList/app/src/main/res/drawable-v24/ic_baseline_add_24.xml" value="0.1" />
         <entry key="..\:/Users/Public/Documents/Android/ContactList/app/src/main/res/layout/activity_add_contact.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/Public/Documents/Android/ContactList/app/src/main/res/layout/activity_edit_contact.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Public/Documents/Android/ContactList/app/src/main/res/layout/activity_main.xml" value="0.2604166666666667" />
         <entry key="..\:/Users/Public/Documents/Android/ContactList/app/src/main/res/layout/item_contact.xml" value="0.27447916666666666" />
       </map>

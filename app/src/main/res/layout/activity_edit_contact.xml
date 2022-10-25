@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/etNameSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Поиск имени" />
+
+        <Button
+            android:id="@+id/btnSearch"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="Поиск" />
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/etNameEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Имя" />
+
+    <EditText
+        android:id="@+id/etSurnameEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Фамилия" />
+
+    <EditText
+        android:id="@+id/etNumberEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Номер телефона" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"
+            android:text="Отмена" />
+
+        <Button
+            android:id="@+id/btnSaveEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"
+            android:text="Сохранить изменения" />
+
+    </LinearLayout>
+
+</LinearLayout>

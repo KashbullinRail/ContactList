@@ -18,6 +18,12 @@ class ContactRepositoryImpl(
         }
     }
 
+    override fun editContact(name: String, surname: String, number: String) {
+        realm.executeTransaction {
+
+        }
+    }
+
     override fun getContact(): List<Contact> {
         return realm.where(Contact::class.java).findAll()
     }
