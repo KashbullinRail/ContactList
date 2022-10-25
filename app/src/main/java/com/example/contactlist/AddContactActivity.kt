@@ -25,16 +25,23 @@ class AddContactActivity : AppCompatActivity(), MainAction {
         setContentView(binding.root)
 
         binding.btnSave.setOnClickListener {
+            val r = Regex(REGEX_PHONE_NUMBER)
+
             with(binding) {
-                presenter.addContact(
-                    name = etName.text.toString(),
-                    surname = etSurname.text.toString(),
-                    number = etNumber.text.toString()
-                )
-                startActivity(Intent(this@AddContactActivity, MainActivity::class.java))
-                finish()
+                if (r.matches(etNumber.text.toString())) {
+                    presenter.addContact(
+                        name = etName.text.toString(),
+                        surname = etSurname.text.toString(),
+                        number = etNumber.text.toString()
+                    )
+                    startActivity(Intent(this@AddContactActivity, MainActivity::class.java))
+                    finish()
+                } else Toast
+                        .makeText(applicationContext, "номер телефона введен не верно", Toast.LENGTH_LONG)
+                        .show()
             }
         }
+
 
         binding.btnCancel.setOnClickListener {
             startActivity(Intent(this@AddContactActivity, MainActivity::class.java))

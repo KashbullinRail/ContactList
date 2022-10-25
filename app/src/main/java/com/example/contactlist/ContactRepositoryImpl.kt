@@ -2,7 +2,10 @@ package com.example.contactlist
 
 import com.example.contactlist.temporarily.Contact
 import io.realm.Realm
+import io.realm.RealmModel
 import io.realm.Sort
+import io.realm.kotlin.where
+import org.koin.core.component.getScopeId
 import java.util.*
 
 
@@ -19,9 +22,16 @@ class ContactRepositoryImpl(
         }
     }
 
-    override fun editContact() {
+    override fun editContact(name: String, surname: String, number: String) {
         realm.executeTransaction {
-
+            it.where(Contact::class.java)
+                .equalTo("name", "$name")
+                .findFirst()
+                .apply {
+                    this?.name = name
+                    this?.surname = surname
+                    this?.number = number
+                }
         }
     }
 

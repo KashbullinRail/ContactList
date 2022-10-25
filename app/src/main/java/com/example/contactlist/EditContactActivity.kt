@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.contactlist.databinding.ActivityEditContactBinding
 import com.example.contactlist.presenter.MainAction
 import com.example.contactlist.temporarily.Contact
+import io.realm.Realm
 import org.koin.android.ext.android.inject
 
 
@@ -32,6 +33,18 @@ class EditContactActivity: AppCompatActivity(), MainAction {
             startActivity(Intent(this@EditContactActivity, MainActivity::class.java))
             finish()
         }
+
+        binding.btnSearch.setOnClickListener {
+            with(binding) {
+            presenter.editContact(
+                name = etNameEdit.text.toString(),
+                surname = etSurnameEdit.text.toString(),
+                number = etNumberEdit.text.toString()
+            )
+
+        }
+        }
+
 
     }
 

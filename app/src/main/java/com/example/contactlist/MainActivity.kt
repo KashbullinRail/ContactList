@@ -8,6 +8,7 @@ import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import com.example.contactlist.databinding.ActivityMainBinding
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -34,6 +35,8 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
 
     private val viewModel : MainViewModel by viewModel()
 
+    private val presenter: Presenter by inject()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -57,6 +60,8 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
         binding.fabEditContact.setOnClickListener {
             startActivity(Intent(this, EditContactActivity::class.java))
         }
+
+
     }
 
     override fun onDestroy() {
