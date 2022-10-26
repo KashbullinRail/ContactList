@@ -35,6 +35,13 @@ class ContactRepositoryImpl(
         }
     }
 
+    override fun searchContact(nameSearch: String): Contact? {
+          val db = realm.where(Contact::class.java)
+                .equalTo("name", "$nameSearch")
+                .findFirst()
+        return db
+    }
+
     override fun getContact(): List<Contact> {
         return realm.where(Contact::class.java).findAll().sort("name", Sort.ASCENDING)
     }

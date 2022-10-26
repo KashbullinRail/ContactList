@@ -10,7 +10,7 @@ import io.realm.Realm
 import org.koin.android.ext.android.inject
 
 
-class EditContactActivity: AppCompatActivity(), MainAction {
+class EditContactActivity : AppCompatActivity(), MainAction {
 
     private lateinit var binding: ActivityEditContactBinding
 
@@ -36,15 +36,23 @@ class EditContactActivity: AppCompatActivity(), MainAction {
 
         binding.btnSearch.setOnClickListener {
             with(binding) {
-            presenter.editContact(
-                name = etNameEdit.text.toString(),
-                surname = etSurnameEdit.text.toString(),
-                number = etNumberEdit.text.toString()
-            )
+                presenter.editContact(
+                    name = etNameEdit.text.toString(),
+                    surname = etSurnameEdit.text.toString(),
+                    number = etNumberEdit.text.toString()
+                )
+
+            }
+        }
+
+        binding.btnSaveEdit.setOnClickListener {
+            with(binding){
+                presenter.searchContact(
+                    nameSearch = etNameSearch.text.toString()
+                )
+            }
 
         }
-        }
-
 
     }
 
@@ -54,7 +62,6 @@ class EditContactActivity: AppCompatActivity(), MainAction {
 
     override fun onAddContact(contacts: List<Contact>) {
     }
-
 
 
 }

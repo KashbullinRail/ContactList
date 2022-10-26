@@ -35,7 +35,6 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
 
     private val viewModel : MainViewModel by viewModel()
 
-    private val presenter: Presenter by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
