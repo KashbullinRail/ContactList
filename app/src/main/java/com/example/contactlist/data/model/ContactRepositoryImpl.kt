@@ -1,11 +1,8 @@
-package com.example.contactlist
+package com.example.contactlist.data.model
 
-import com.example.contactlist.temporarily.Contact
+import com.example.contactlist.data.ContactRepository
 import io.realm.Realm
-import io.realm.RealmModel
 import io.realm.Sort
-import io.realm.kotlin.where
-import org.koin.core.component.getScopeId
 import java.util.*
 
 

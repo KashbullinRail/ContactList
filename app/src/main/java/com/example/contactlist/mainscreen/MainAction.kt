@@ -1,6 +1,6 @@
-package com.example.contactlist.presenter
+package com.example.contactlist.mainscreen
 
-import com.example.contactlist.temporarily.Contact
+import com.example.contactlist.data.model.Contact
 
 
 interface MainAction {

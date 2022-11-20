@@ -1,4 +1,4 @@
-package com.example.contactlist
+package com.example.contactlist.mainscreen
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.contactlist.databinding.ItemContactBinding
-import com.example.contactlist.temporarily.Contact
+import com.example.contactlist.data.model.Contact
 
 
 class ContactsAdapter() :

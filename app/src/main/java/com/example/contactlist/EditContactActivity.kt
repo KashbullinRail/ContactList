@@ -4,9 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.contactlist.databinding.ActivityEditContactBinding
-import com.example.contactlist.presenter.MainAction
-import com.example.contactlist.temporarily.Contact
-import io.realm.Realm
+import com.example.contactlist.mainscreen.MainAction
+import com.example.contactlist.data.model.Contact
+import com.example.contactlist.mainscreen.Presenter
 import org.koin.android.ext.android.inject
 
 

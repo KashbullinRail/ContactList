@@ -1,8 +1,6 @@
-package com.example.contactlist
+package com.example.contactlist.data
 
-import com.example.contactlist.temporarily.Contact
-import io.realm.Realm
-import io.realm.RealmModel
+import com.example.contactlist.data.model.Contact
 
 interface ContactRepository {
 
@@ -10,7 +8,7 @@ interface ContactRepository {
 
     fun editContact(name: String, surname: String, number: String)
 
-    fun searchContact(nameSearch: String):Contact?
+    fun searchContact(nameSearch: String): Contact?
 
     fun getContact(): List<Contact>
 

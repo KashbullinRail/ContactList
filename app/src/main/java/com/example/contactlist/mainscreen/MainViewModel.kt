@@ -1,10 +1,11 @@
-package com.example.contactlist
+package com.example.contactlist.mainscreen
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.contactlist.temporarily.Contact
-import com.example.contactlist.temporarily.ContactLiveData
+import com.example.contactlist.data.ContactRepository
+import com.example.contactlist.data.model.Contact
+import com.example.contactlist.data.model.ContactLiveData
 
 
 class MainViewModel(private val contactRepository: ContactRepository) : ViewModel() {

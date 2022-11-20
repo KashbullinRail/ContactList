@@ -1,12 +1,13 @@
-package com.example.contactlist
+package com.example.contactlist.mainscreen
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.contactlist.MainActivity
+import com.example.contactlist.REGEX_PHONE_NUMBER
 import com.example.contactlist.databinding.ActivityAddContactBinding
-import com.example.contactlist.presenter.MainAction
-import com.example.contactlist.temporarily.Contact
+import com.example.contactlist.data.model.Contact
 import org.koin.android.ext.android.inject
 
 

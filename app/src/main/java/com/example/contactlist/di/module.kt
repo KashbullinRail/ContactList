@@ -1,9 +1,9 @@
 package com.example.contactlist.di
 
-import com.example.contactlist.ContactRepository
-import com.example.contactlist.ContactRepositoryImpl
-import com.example.contactlist.MainViewModel
-import com.example.contactlist.Presenter
+import com.example.contactlist.data.ContactRepository
+import com.example.contactlist.data.model.ContactRepositoryImpl
+import com.example.contactlist.mainscreen.MainViewModel
+import com.example.contactlist.mainscreen.Presenter
 import io.realm.Realm
 import io.realm.RealmConfiguration
 import org.koin.android.ext.koin.androidApplication

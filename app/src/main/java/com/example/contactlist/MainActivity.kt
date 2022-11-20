@@ -8,7 +8,9 @@ import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import com.example.contactlist.databinding.ActivityMainBinding
-import org.koin.android.ext.android.inject
+import com.example.contactlist.mainscreen.AddContactActivity
+import com.example.contactlist.mainscreen.ContactsAdapter
+import com.example.contactlist.mainscreen.MainViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 

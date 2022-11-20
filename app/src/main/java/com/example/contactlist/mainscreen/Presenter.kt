@@ -1,7 +1,6 @@
-package com.example.contactlist
+package com.example.contactlist.mainscreen
 
-import com.example.contactlist.presenter.MainAction
-import com.example.contactlist.temporarily.Contact
+import com.example.contactlist.data.ContactRepository
 
 
 class Presenter(private val contactRepository: ContactRepository) {

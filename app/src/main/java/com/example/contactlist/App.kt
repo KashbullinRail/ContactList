@@ -1,4 +1,4 @@
-package com.example.contactlist.temporarily
+package com.example.contactlist
 
 import android.app.Application
 import com.example.contactlist.di.appModule
