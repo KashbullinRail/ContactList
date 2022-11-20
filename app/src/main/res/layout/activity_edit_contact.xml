@@ -1,84 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="8dp"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/etNameSearch"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:hint="@string/InSearchName" />
+    <EditText
+        android:id="@+id/etNameSearch"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:hint="@string/InSearchName"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/btnSearch"
-            android:layout_width="100dp"
-            android:layout_marginHorizontal="20dp"
-            android:layout_height="match_parent"
-            android:text="@string/Search" />
+    <EditText
+        android:id="@+id/etSurnameSearch"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:hint="Поиск по фамилии"
+        app:layout_constraintStart_toStartOf="@+id/etNameSearch"
+        app:layout_constraintTop_toBottomOf="@+id/etNameSearch" />
 
-    </LinearLayout>
+    <Button
+        android:id="@+id/btnSearch"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="15dp"
+        android:text="@string/Search"
+        app:layout_constraintBottom_toBottomOf="@+id/etSurnameSearch"
+        app:layout_constraintStart_toEndOf="@+id/etSurnameSearch" />
 
     <EditText
         android:id="@+id/etNameEdit"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:hint="@string/Name" />
+        android:layout_marginTop="40dp"
+        android:hint="@string/Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etSurnameSearch" />
 
     <EditText
         android:id="@+id/etSurnameEdit"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:hint="@string/Surname" />
+        android:hint="@string/Surname"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etNameEdit" />
 
     <EditText
         android:id="@+id/etNumberEdit"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:hint="@string/PhoneNumber" />
+        android:hint="@string/PhoneNumber"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etSurnameEdit" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="20dp"
+        android:text="@string/Cancel"
+        app:layout_constraintBottom_toBottomOf="@+id/btnSaveEdit"
+        app:layout_constraintEnd_toStartOf="@+id/btnSaveEdit"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <Button
-            android:id="@+id/btnCancel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginHorizontal="20dp"
-            android:text="@string/Cancel" />
-
-        <Button
-            android:id="@+id/btnSaveEdit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/SaveEdit" />
-
-    </LinearLayout>
+    <Button
+        android:id="@+id/btnSaveEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/SaveEdit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etNumberEdit" />
 
     <Button
         android:id="@+id/btnDeleteAll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:text="@string/DeleteContact"/>
+        android:text="@string/DeleteContact"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="16dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="25dp"
-        android:hint="фамилия"/>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

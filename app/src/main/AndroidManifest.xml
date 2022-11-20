@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".mainscreen.AddContactActivity"
+            android:name=".AddContactActivity"
             android:exported="false" />
         <activity
             android:name=".EditContactActivity"

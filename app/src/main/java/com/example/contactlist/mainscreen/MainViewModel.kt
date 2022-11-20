@@ -11,6 +11,7 @@ import com.example.contactlist.data.model.ContactLiveData
 class MainViewModel(private val contactRepository: ContactRepository) : ViewModel() {
 
     val allContacts: ContactLiveData
+
         get() = getAllContacts() as ContactLiveData
 
     fun addContact(name: String, surname: String, number: String) {
@@ -20,10 +21,14 @@ class MainViewModel(private val contactRepository: ContactRepository) : ViewMode
 
     private fun getAllContacts(): MutableLiveData<List<Contact>> {
         val list = ContactLiveData()
-        val allContacts = contactRepository.getContact()
+        val allContacts = contactRepository.getContacts()
         list.value = allContacts.subList(0, allContacts.size)
         return list
     }
+
+
+
+
 
     override fun onCleared() {
         super.onCleared()

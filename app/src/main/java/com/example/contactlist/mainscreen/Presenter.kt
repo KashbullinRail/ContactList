@@ -14,16 +14,16 @@ class Presenter(private val contactRepository: ContactRepository) {
 
     fun addContact(name: String, surname: String, number: String) {
         contactRepository.addContact(name, surname, number)
-        mainAction?.onAddContact(contactRepository.getContact())
+        mainAction?.onAddContact(contactRepository.getContacts())
     }
 
     fun editContact(name: String, surname: String, number: String) {
         contactRepository.editContact(name, surname, number)
-        mainAction?.onAddContact(contactRepository.getContact())
+        mainAction?.onAddContact(contactRepository.getContacts())
     }
 
-    fun searchContact(nameSearch: String) {
-        contactRepository.searchContact(nameSearch)
-        mainAction?.onAddContact(contactRepository.getContact())
+    fun searchContact(nameSearch: String, surnameSearch:String) {
+        contactRepository.searchContact(nameSearch, surnameSearch)
+        mainAction?.onAddContact(contactRepository.getContacts())
     }
 }

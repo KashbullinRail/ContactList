@@ -1,5 +1,6 @@
 package com.example.contactlist.data.model
 
+import android.util.Log
 import com.example.contactlist.data.ContactRepository
 import io.realm.Realm
 import io.realm.Sort
@@ -32,15 +33,26 @@ class ContactRepositoryImpl(
         }
     }
 
-    override fun searchContact(nameSearch: String): Contact? {
-          val db = realm.where(Contact::class.java)
-                .equalTo("name", "$nameSearch")
-                .findFirst()
-        return db
+    override fun searchContact(nameSearch: String, surnameSearch: String): Contact? {
+        val db1 = realm.where(Contact::class.java)
+            .equalTo("name", "$nameSearch")
+            .findAll()
+        Log.d("DEBUG1", "$db1")
+        val db2 = realm.where(Contact::class.java)
+            .equalTo("surname", "$surnameSearch")
+            .findFirst()
+        Log.d("DEBUG2", "$db2")
+        val id = db2?.id.toString()
+        val name = db2?.name.toString()
+        val surname = db2?.surname.toString()
+        val number = db2?.number.toString()
+        val searchContact = listOf(id, name, surname, number)
+        return db2
     }
 
-    override fun getContact(): List<Contact> {
-        return realm.where(Contact::class.java).findAll().sort("name", Sort.ASCENDING)
+    override fun getContacts(): List<Contact> {
+        return realm.where(Contact::class.java).findAll().sort("surname", Sort.ASCENDING)
     }
+
 
 }

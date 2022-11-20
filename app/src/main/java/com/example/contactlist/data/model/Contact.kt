@@ -7,7 +7,7 @@ import io.realm.annotations.Required
 
 
 @RealmClass
-open class Contact : RealmModel {
+open class Contact : RealmModel, List<Contact> {
     @PrimaryKey
     var id: String = ""
 

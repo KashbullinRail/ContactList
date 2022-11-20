@@ -25,7 +25,6 @@ val appModule = module {
             .build()
 
         Realm.setDefaultConfiguration(configuration)
-
         Realm.getDefaultInstance()
     }
 

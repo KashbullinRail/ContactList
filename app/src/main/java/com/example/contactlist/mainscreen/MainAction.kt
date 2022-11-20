@@ -7,5 +7,6 @@ interface MainAction {
 
     fun onAddContact(contacts: List<Contact>)
 
+
     fun onEditContact(contacts: List<Contact>)
 }

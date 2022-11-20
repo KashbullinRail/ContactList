@@ -8,7 +8,6 @@ import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import com.example.contactlist.databinding.ActivityMainBinding
-import com.example.contactlist.mainscreen.AddContactActivity
 import com.example.contactlist.mainscreen.ContactsAdapter
 import com.example.contactlist.mainscreen.MainViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -47,6 +46,7 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
         setContentView(binding.root)
 
         val adapter = ContactsAdapter()
+
 
         viewModel.allContacts.observe(this) {
             adapter.setData(it)
