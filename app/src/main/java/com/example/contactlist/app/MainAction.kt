@@ -1,4 +1,4 @@
-package com.example.contactlist.presentation
+package com.example.contactlist.app
 
 import com.example.contactlist.data.model.Contact
 

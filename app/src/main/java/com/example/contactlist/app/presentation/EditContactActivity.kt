@@ -1,15 +1,14 @@
-package com.example.contactlist.presentation.screens
+package com.example.contactlist.app.presentation
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.contactlist.*
 import com.example.contactlist.databinding.ActivityEditContactBinding
-import com.example.contactlist.presentation.MainAction
+import com.example.contactlist.app.MainAction
 import com.example.contactlist.data.model.Contact
-import com.example.contactlist.presentation.Presenter
+import com.example.contactlist.app.Presenter
 import org.koin.android.ext.android.inject
 
 

@@ -1,4 +1,4 @@
-package com.example.contactlist.presentation.repository
+package com.example.contactlist.app.repository
 
 import com.example.contactlist.data.model.Contact
 

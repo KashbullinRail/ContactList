@@ -1,4 +1,4 @@
-package com.example.contactlist.presentation.screens
+package com.example.contactlist.app.presentation
 
 import android.content.Intent
 import android.os.Bundle
@@ -15,8 +15,8 @@ import com.example.contactlist.KEY_ITEM_SURNAME
 import com.example.contactlist.data.model.Contact
 import com.example.contactlist.databinding.ActivityMainBinding
 import com.example.contactlist.domain.adapter.ContactsAdapter
-import com.example.contactlist.presentation.ItemListener
-import com.example.contactlist.presentation.viewModel.MainViewModel
+import com.example.contactlist.app.ItemListener
+import com.example.contactlist.app.viewModel.MainViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 

@@ -1,11 +1,11 @@
-package com.example.contactlist.presentation.viewModel
+package com.example.contactlist.app.viewModel
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.contactlist.data.model.Contact
 import com.example.contactlist.data.model.ContactLiveData
-import com.example.contactlist.presentation.repository.ContactRepository
+import com.example.contactlist.app.repository.ContactRepository
 
 
 class MainViewModel(private val contactRepository: ContactRepository) : ViewModel() {
