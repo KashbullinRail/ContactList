@@ -1,4 +1,4 @@
-package com.example.contactlist
+package com.example.contactlist.domain.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,9 +6,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.contactlist.databinding.ItemContactBinding
+import com.example.contactlist.data.model.Contact
+import com.example.contactlist.presentation.ItemListener
 
 
-class ContactsAdapter() :
+class ContactsAdapter(val itemListener: ItemListener) :
     ListAdapter<Contact, ContactsAdapter.MyViewHolder>(MyDiffUtil) {
 
     object MyDiffUtil : DiffUtil.ItemCallback<Contact>() {
@@ -23,9 +25,14 @@ class ContactsAdapter() :
 
     inner class MyViewHolder(private val binding: ItemContactBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(contact: Contact?) {
-            binding.tvNameAndSurname.text = "${contact?.name} ${contact?.surname}"
+        fun bind(contact: Contact?, itemListener: ItemListener) {
+            binding.tvNameAndSurname.text = "${contact?.surname}   ${contact?.name}"
             binding.tvNumber.text = contact?.number
+
+            itemView.setOnClickListener {
+                itemListener.onClick(contact)
+            }
+
         }
     }
 
@@ -41,11 +48,12 @@ class ContactsAdapter() :
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val note = getItem(position)
-        holder.bind(note)
+        holder.bind(note, itemListener)
     }
 
     fun setData(allContacts: List<Contact>) {
         this.submitList(allContacts)
         notifyDataSetChanged()
     }
+
 }

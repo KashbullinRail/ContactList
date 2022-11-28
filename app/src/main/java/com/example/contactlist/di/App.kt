@@ -1,7 +1,7 @@
-package com.example.contactlist
+package com.example.contactlist.di
 
 import android.app.Application
-import com.example.realmdatabase.di.appModule
+import com.example.contactlist.di.appModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 

@@ -1,4 +1,4 @@
-package com.example.contactlist
+package com.example.contactlist.data.model
 
 import io.realm.RealmModel
 import io.realm.annotations.PrimaryKey

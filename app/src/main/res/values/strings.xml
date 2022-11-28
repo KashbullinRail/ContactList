@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">ContactList</string>
+    <string name="SaveEdit">Сохранить изменения</string>
+    <string name="DeleteContact">Удалить контакт</string>
+    <string name="Cancel">Отмена</string>
+    <string name="PhoneNumber">Номер телефона</string>
+    <string name="Surname">Фамилия</string>
+    <string name="Name">Имя</string>
+    <string name="Search">Поиск</string>
+    <string name="InSearchName">Поиск имени</string>
+    <string name="SaveContact">Сохранить контакт</string>
 </resources>

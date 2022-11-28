@@ -1,8 +1,11 @@
-package com.example.contactlist
+package com.example.contactlist.presentation.viewModel
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.contactlist.data.model.Contact
+import com.example.contactlist.data.model.ContactLiveData
+import com.example.contactlist.presentation.repository.ContactRepository
 
 
 class MainViewModel(private val contactRepository: ContactRepository) : ViewModel() {
@@ -11,13 +14,12 @@ class MainViewModel(private val contactRepository: ContactRepository) : ViewMode
         get() = getAllContacts() as ContactLiveData
 
     fun addContact(name: String, surname: String, number: String) {
-
         contactRepository.addContact(name, surname, number)
     }
 
     private fun getAllContacts(): MutableLiveData<List<Contact>> {
         val list = ContactLiveData()
-        val allContacts = contactRepository.getContact()
+        val allContacts = contactRepository.getContacts()
         list.value = allContacts.subList(0, allContacts.size)
         return list
     }
