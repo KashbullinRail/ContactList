@@ -3,10 +3,8 @@ package com.example.contactlist.presentation.screens
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.LifecycleObserver
 import com.example.contactlist.KEY_ITEM_ID
 import com.example.contactlist.KEY_ITEM_NAME
 import com.example.contactlist.KEY_ITEM_NUMBER
@@ -15,9 +13,7 @@ import com.example.contactlist.databinding.ActivityEditContactBinding
 import com.example.contactlist.presentation.MainAction
 import com.example.contactlist.data.model.Contact
 import com.example.contactlist.presentation.Presenter
-import com.example.contactlist.presentation.viewModel.MainViewModel
 import org.koin.android.ext.android.inject
-import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class EditContactActivity : AppCompatActivity(), MainAction {
@@ -41,7 +37,7 @@ class EditContactActivity : AppCompatActivity(), MainAction {
         binding = ActivityEditContactBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        with(binding){
+        with(binding) {
             etNameEdit.setText(itemName)
             etSurnameEdit.setText(itemSurname)
             etNumberEdit.setText(itemNumber)
@@ -80,9 +76,18 @@ class EditContactActivity : AppCompatActivity(), MainAction {
                     surname = etSurnameEdit.text.toString(),
                     number = etNumberEdit.text.toString()
                 )
+                startActivity(Intent(this@EditContactActivity, MainActivity::class.java))
+                finish()
+            }
+            btnDelete.setOnClickListener {
+                presenter.editContact(
+                    id = itemID.toString(),
+                    removeFlag = true
+                )
+                startActivity(Intent(this@EditContactActivity, MainActivity::class.java))
+                finish()
             }
         }
-
 
 
     }

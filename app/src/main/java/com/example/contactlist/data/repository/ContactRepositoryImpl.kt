@@ -5,6 +5,7 @@ import com.example.contactlist.data.model.Contact
 import com.example.contactlist.presentation.repository.ContactRepository
 import io.realm.Realm
 import io.realm.Sort
+import io.realm.kotlin.deleteFromRealm
 import java.util.*
 
 
@@ -39,9 +40,10 @@ class ContactRepositoryImpl(
                         this?.number = number
                     }
             } else {
-                it.where(Contact::class.java)
+              val data = it.where(Contact::class.java)
                     .equalTo("id", "$id")
                     .findFirst()
+                data?.deleteFromRealm()
 
             }
 
