@@ -19,9 +19,7 @@ import org.koin.android.ext.android.inject
 class EditContactActivity : AppCompatActivity(), MainAction {
 
     private lateinit var binding: ActivityEditContactBinding
-
     private val presenter: Presenter by inject()
-//    private val viewModel: MainViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +30,6 @@ class EditContactActivity : AppCompatActivity(), MainAction {
         val itemName = intent.getStringExtra(KEY_ITEM_NAME)
         val itemSurname = intent.getStringExtra(KEY_ITEM_SURNAME)
         val itemNumber = intent.getStringExtra(KEY_ITEM_NUMBER)
-
 
         binding = ActivityEditContactBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -47,26 +44,6 @@ class EditContactActivity : AppCompatActivity(), MainAction {
             startActivity(Intent(this@EditContactActivity, MainActivity::class.java))
             finish()
         }
-
-        binding.btnSearch.setOnClickListener {
-            with(binding) {
-                Log.d("DEBUG", "нажатие кнопки поиск")
-                if (etNameSearch.text.toString().isEmpty()
-                    || etSurnameSearch.text.toString().isEmpty()
-                ) {
-                    Toast.makeText(
-                        this@EditContactActivity,
-                        "Поля поиска не заполнены",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                } else {
-                    presenter.searchContact(
-                        id = itemID.toString()
-                    )
-                }
-            }
-        }
-
 
         with(binding) {
             btnSaveEdit.setOnClickListener {
@@ -88,7 +65,6 @@ class EditContactActivity : AppCompatActivity(), MainAction {
                 finish()
             }
         }
-
 
     }
 

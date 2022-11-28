@@ -26,7 +26,7 @@ class ContactsAdapter(val itemListener: ItemListener) :
     inner class MyViewHolder(private val binding: ItemContactBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(contact: Contact?, itemListener: ItemListener) {
-            binding.tvNameAndSurname.text = "${contact?.surname} ${contact?.name}"
+            binding.tvNameAndSurname.text = "${contact?.surname}   ${contact?.name}"
             binding.tvNumber.text = contact?.number
 
             itemView.setOnClickListener {
