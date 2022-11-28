@@ -7,7 +7,6 @@ class Presenter(private val contactRepository: ContactRepository) {
 
     private var mainAction: MainAction? = null
 
-
     fun initAction(mainAction: MainAction) {
         this.mainAction = mainAction
     }
@@ -22,8 +21,4 @@ class Presenter(private val contactRepository: ContactRepository) {
         mainAction?.onAddContact(contactRepository.getContacts())
     }
 
-    fun searchContact(id:String) {
-        contactRepository.searchContact(id)
-        mainAction?.onAddContact(contactRepository.getContacts())
-    }
 }

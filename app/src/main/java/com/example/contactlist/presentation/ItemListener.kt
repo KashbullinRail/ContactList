@@ -4,6 +4,6 @@ import com.example.contactlist.data.model.Contact
 
 interface ItemListener {
 
-   fun onClick(contact: Contact?)
+    fun onClick(contact: Contact?)
 
 }

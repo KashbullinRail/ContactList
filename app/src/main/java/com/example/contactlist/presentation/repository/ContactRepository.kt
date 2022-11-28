@@ -8,8 +8,6 @@ interface ContactRepository {
 
     fun editContact(id: String, name: String, surname: String, number: String, removeFlag: Boolean)
 
-    fun searchContact(id: String): Contact?
-
     fun getContacts(): List<Contact>
 
 }

@@ -11,11 +11,9 @@ import com.example.contactlist.presentation.repository.ContactRepository
 class MainViewModel(private val contactRepository: ContactRepository) : ViewModel() {
 
     val allContacts: ContactLiveData
-
         get() = getAllContacts() as ContactLiveData
 
     fun addContact(name: String, surname: String, number: String) {
-
         contactRepository.addContact(name, surname, number)
     }
 

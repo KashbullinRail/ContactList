@@ -40,7 +40,7 @@ class ContactRepositoryImpl(
                         this?.number = number
                     }
             } else {
-              val data = it.where(Contact::class.java)
+                val data = it.where(Contact::class.java)
                     .equalTo("id", "$id")
                     .findFirst()
                 data?.deleteFromRealm()
@@ -48,19 +48,6 @@ class ContactRepositoryImpl(
             }
 
         }
-    }
-
-    override fun searchContact(id: String): Contact? {
-        val db2 = realm.where(Contact::class.java)
-            .equalTo("surname", "$id")
-            .findFirst()
-        Log.d("DEBUG2", "$db2")
-        val id = db2?.id.toString()
-        val name = db2?.name.toString()
-        val surname = db2?.surname.toString()
-        val number = db2?.number.toString()
-        val searchContact = listOf(id, name, surname, number)
-        return db2
     }
 
     override fun getContacts(): List<Contact> {

@@ -62,11 +62,8 @@ class MainActivity : AppCompatActivity(), LifecycleObserver, ItemListener {
             startActivity(Intent(this, AddContactActivity::class.java))
         }
 
-        binding.fabEditContact.setOnClickListener {
-            startActivity(Intent(this, EditContactActivity::class.java))
-        }
-
     }
+
 
     override fun onClick(contact: Contact?) {
         val idItem = contact?.id.toString()
@@ -91,4 +88,6 @@ class MainActivity : AppCompatActivity(), LifecycleObserver, ItemListener {
         super.onDestroy()
         lifecycle.removeObserver(defaultLifecycleObserver)
     }
+
+
 }

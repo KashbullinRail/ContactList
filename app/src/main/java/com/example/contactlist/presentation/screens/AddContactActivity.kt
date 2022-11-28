@@ -62,6 +62,5 @@ class AddContactActivity : AppCompatActivity(), MainAction {
     }
 
     override fun onEditContact(contacts: List<Contact>) {
-        TODO("Not yet implemented")
     }
 }
