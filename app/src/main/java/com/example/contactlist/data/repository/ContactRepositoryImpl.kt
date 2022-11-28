@@ -1,7 +1,8 @@
-package com.example.contactlist.data.model
+package com.example.contactlist.data.repository
 
 import android.util.Log
-import com.example.contactlist.data.ContactRepository
+import com.example.contactlist.data.model.Contact
+import com.example.contactlist.presentation.repository.ContactRepository
 import io.realm.Realm
 import io.realm.Sort
 import java.util.*
@@ -20,26 +21,36 @@ class ContactRepositoryImpl(
         }
     }
 
-    override fun editContact(name: String, surname: String, number: String) {
+    override fun editContact(
+        id: String,
+        name: String,
+        surname: String,
+        number: String,
+        removeFlag: Boolean
+    ) {
         realm.executeTransaction {
-            it.where(Contact::class.java)
-                .equalTo("name", "$name")
-                .findFirst()
-                .apply {
-                    this?.name = name
-                    this?.surname = surname
-                    this?.number = number
-                }
+            if (!removeFlag) {
+                it.where(Contact::class.java)
+                    .equalTo("id", "$id")
+                    .findFirst()
+                    .apply {
+                        this?.name = name
+                        this?.surname = surname
+                        this?.number = number
+                    }
+            } else {
+                it.where(Contact::class.java)
+                    .equalTo("id", "$id")
+                    .findFirst()
+
+            }
+
         }
     }
 
-    override fun searchContact(nameSearch: String, surnameSearch: String): Contact? {
-        val db1 = realm.where(Contact::class.java)
-            .equalTo("name", "$nameSearch")
-            .findAll()
-        Log.d("DEBUG1", "$db1")
+    override fun searchContact(id: String): Contact? {
         val db2 = realm.where(Contact::class.java)
-            .equalTo("surname", "$surnameSearch")
+            .equalTo("surname", "$id")
             .findFirst()
         Log.d("DEBUG2", "$db2")
         val id = db2?.id.toString()

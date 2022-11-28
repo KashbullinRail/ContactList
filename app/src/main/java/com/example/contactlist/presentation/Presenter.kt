@@ -1,6 +1,6 @@
-package com.example.contactlist.mainscreen
+package com.example.contactlist.presentation
 
-import com.example.contactlist.data.ContactRepository
+import com.example.contactlist.presentation.repository.ContactRepository
 
 
 class Presenter(private val contactRepository: ContactRepository) {
@@ -17,13 +17,13 @@ class Presenter(private val contactRepository: ContactRepository) {
         mainAction?.onAddContact(contactRepository.getContacts())
     }
 
-    fun editContact(name: String, surname: String, number: String) {
-        contactRepository.editContact(name, surname, number)
+    fun editContact(id:String,name: String = "", surname: String = "", number: String = "", removeFlag:Boolean = false) {
+        contactRepository.editContact(id, name, surname, number, removeFlag)
         mainAction?.onAddContact(contactRepository.getContacts())
     }
 
-    fun searchContact(nameSearch: String, surnameSearch:String) {
-        contactRepository.searchContact(nameSearch, surnameSearch)
+    fun searchContact(id:String) {
+        contactRepository.searchContact(id)
         mainAction?.onAddContact(contactRepository.getContacts())
     }
 }

@@ -1,10 +1,10 @@
-package com.example.contactlist.mainscreen
+package com.example.contactlist.presentation.viewModel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.contactlist.data.ContactRepository
 import com.example.contactlist.data.model.Contact
 import com.example.contactlist.data.model.ContactLiveData
+import com.example.contactlist.presentation.repository.ContactRepository
 
 class EditViewModel(private val contactRepository: ContactRepository):ViewModel() {
 
@@ -14,7 +14,7 @@ class EditViewModel(private val contactRepository: ContactRepository):ViewModel(
 
     fun addContact(name: String, surname: String) {
 
-        contactRepository.searchContact(name, surname)
+//        contactRepository.searchContact(id)
     }
 
 

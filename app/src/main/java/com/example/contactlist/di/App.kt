@@ -1,4 +1,4 @@
-package com.example.contactlist
+package com.example.contactlist.di
 
 import android.app.Application
 import com.example.contactlist.di.appModule

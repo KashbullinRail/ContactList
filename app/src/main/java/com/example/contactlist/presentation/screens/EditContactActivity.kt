@@ -1,14 +1,21 @@
-package com.example.contactlist
+package com.example.contactlist.presentation.screens
 
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.LifecycleObserver
+import com.example.contactlist.KEY_ITEM_ID
+import com.example.contactlist.KEY_ITEM_NAME
+import com.example.contactlist.KEY_ITEM_NUMBER
+import com.example.contactlist.KEY_ITEM_SURNAME
 import com.example.contactlist.databinding.ActivityEditContactBinding
-import com.example.contactlist.mainscreen.MainAction
+import com.example.contactlist.presentation.MainAction
 import com.example.contactlist.data.model.Contact
-import com.example.contactlist.mainscreen.Presenter
+import com.example.contactlist.presentation.Presenter
+import com.example.contactlist.presentation.viewModel.MainViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -18,16 +25,27 @@ class EditContactActivity : AppCompatActivity(), MainAction {
     private lateinit var binding: ActivityEditContactBinding
 
     private val presenter: Presenter by inject()
+//    private val viewModel: MainViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         presenter.initAction(this)
 
+        val itemID = intent.getStringExtra(KEY_ITEM_ID).toString()
+        val itemName = intent.getStringExtra(KEY_ITEM_NAME)
+        val itemSurname = intent.getStringExtra(KEY_ITEM_SURNAME)
+        val itemNumber = intent.getStringExtra(KEY_ITEM_NUMBER)
+
+
         binding = ActivityEditContactBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
+        with(binding){
+            etNameEdit.setText(itemName)
+            etSurnameEdit.setText(itemSurname)
+            etNumberEdit.setText(itemNumber)
+        }
 
         binding.btnCancel.setOnClickListener {
             startActivity(Intent(this@EditContactActivity, MainActivity::class.java))
@@ -47,22 +65,25 @@ class EditContactActivity : AppCompatActivity(), MainAction {
                     ).show()
                 } else {
                     presenter.searchContact(
-                        nameSearch = etNameSearch.text.toString(),
-                        surnameSearch = etSurnameSearch.text.toString()
+                        id = itemID.toString()
                     )
                 }
             }
         }
 
-        binding.btnSaveEdit.setOnClickListener {
-            with(binding) {
+
+        with(binding) {
+            btnSaveEdit.setOnClickListener {
                 presenter.editContact(
+                    id = itemID.toString(),
                     name = etNameEdit.text.toString(),
                     surname = etSurnameEdit.text.toString(),
                     number = etNumberEdit.text.toString()
                 )
             }
         }
+
+
 
     }
 
