@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.contactlist.databinding.ItemContactBinding
 import com.example.contactlist.data.model.Contact
-import com.example.contactlist.presentation.ItemListener
+import com.example.contactlist.app.ItemListener
 
 
 class ContactsAdapter(val itemListener: ItemListener) :

@@ -1,6 +1,6 @@
-package com.example.contactlist.presentation
+package com.example.contactlist.app
 
-import com.example.contactlist.presentation.repository.ContactRepository
+import com.example.contactlist.app.repository.ContactRepository
 
 
 class Presenter(private val contactRepository: ContactRepository) {
