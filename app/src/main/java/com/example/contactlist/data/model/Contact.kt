@@ -8,6 +8,7 @@ import io.realm.annotations.Required
 
 @RealmClass
 open class Contact : RealmModel {
+
     @PrimaryKey
     var id: String = ""
 
@@ -19,4 +20,5 @@ open class Contact : RealmModel {
 
     @Required
     var number: String? = ""
+
 }
