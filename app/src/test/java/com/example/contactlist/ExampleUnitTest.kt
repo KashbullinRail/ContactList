@@ -1,8 +1,8 @@
 package com.example.contactlist
 
 
-import com.example.contactlist.app.viewModel.MainViewModel
 import org.junit.Test
+import kotlin.test.assertEquals
 
 
 /**
@@ -12,15 +12,28 @@ import org.junit.Test
  */
 class ExampleUnitTest {
 
+
     @Test
     fun testViewModel() {
 
-        val viewModel = MainViewModel
-        viewModel.addContact(
-            name = "ergerger",
-            surname = "rdghrt",
-            number = "453633643"
+
+        val contactRepoTest = ContactRepositoryTest()
+
+        val name = "Ivans"
+
+        val contact = FakeContact(
+            name = "Ivan",
+            surname = "Makarov",
+            phone = "55555333"
         )
+
+        contactRepoTest.addContactTest(contact)
+        val list = contactRepoTest.getAllContactTest()
+        val lastContact = list.last()
+
+        assertEquals(contact, lastContact)
+        assertEquals(name, lastContact.name)
+
 
     }
 
