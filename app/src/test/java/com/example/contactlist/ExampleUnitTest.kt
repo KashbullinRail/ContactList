@@ -1,8 +1,9 @@
 package com.example.contactlist
 
+
+import com.example.contactlist.app.viewModel.MainViewModel
 import org.junit.Test
 
-import org.junit.Assert.*
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -10,15 +11,17 @@ import org.junit.Assert.*
  * See [testing documentation](http://d.android.com/tools/testing).
  */
 class ExampleUnitTest {
-    @Test
-    fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
-    }
 
     @Test
-    fun addition_isFail() {
-        assertNotEquals(4, 5 + 2)
-    }
+    fun testViewModel() {
 
+        val viewModel = MainViewModel
+        viewModel.addContact(
+            name = "ergerger",
+            surname = "rdghrt",
+            number = "453633643"
+        )
+
+    }
 
 }
