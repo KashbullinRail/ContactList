@@ -83,12 +83,6 @@ class ExampleInstrumentedTest {
         clickOn(R.id.rvContacts)
         clickOn(R.id.btnDelete)
 
-        clickOn(R.id.rvContacts)
-        pressBack()
-
-        clickOn(R.id.rvContacts)
-        clickOn(R.id.btnDelete)
-
     }
 
 }
