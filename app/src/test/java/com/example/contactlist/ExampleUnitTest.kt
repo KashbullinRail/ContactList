@@ -12,18 +12,19 @@ import kotlin.test.assertEquals
  */
 class ExampleUnitTest {
 
-
     @Test
     fun testViewModel() {
 
         val contactRepoTest = ContactRepositoryTest()
 
-        val name = "Ivans"
+        val name = "Ivan"  //"Petro"
+        val surname = "Makarov" //"Bambini"
+        val phone = "55555557"
 
         val contact = FakeContact(
             name = "Ivan",
             surname = "Makarov",
-            phone = "55555333"
+            phone = "55555555"
         )
 
         contactRepoTest.addContactTest(contact)
@@ -32,6 +33,8 @@ class ExampleUnitTest {
 
         assertEquals(contact, lastContact)
         assertEquals(name, lastContact.name)
+        assertEquals(surname, lastContact.surname)
+        assertEquals(phone, lastContact.phone)
 
     }
 

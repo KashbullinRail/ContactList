@@ -29,7 +29,6 @@ class ExampleInstrumentedTest {
     @get:Rule
     val activityScenarioRule = ActivityScenarioRule(MainActivity::class.java)
 
-
     @Test
     fun checkAllComponentIsVisible_Success() {
 
@@ -48,29 +47,29 @@ class ExampleInstrumentedTest {
         writeTextInField(R.id.etNumber, "22222222")
         clickOn(R.id.btnSave)
 
-        onView(withId(R.id.rvContacts))
-            .check(matches(isDisplayed()))
-            .check(matches(withText("AAA")))
-            .perform(click())
+        clickOn(R.id.fabAddContact)
+        writeTextInField(R.id.etName, "CCC")
+        writeTextInField(R.id.etSurname, "CCCCC")
+        writeTextInField(R.id.etNumber, "33333333")
+        clickOn(R.id.btnSave)
 
+        clickOn(R.id.fabAddContact)
+        writeTextInField(R.id.etName, "DDD")
+        writeTextInField(R.id.etSurname, "DDDDD")
+        writeTextInField(R.id.etNumber, "44444444")
+        clickOn(R.id.btnSave)
 
-//        clickOn(R.id.fabAddContact)
-//        writeTextInField(R.id.etName, "CCC")
-//        writeTextInField(R.id.etSurname, "CCCCC")
-//        writeTextInField(R.id.etNumber, "33333333")
-//        clickOn(R.id.btnSave)
-//
-//        clickOn(R.id.fabAddContact)
-//        writeTextInField(R.id.etName, "DDD")
-//        writeTextInField(R.id.etSurname, "DDDDD")
-//        writeTextInField(R.id.etNumber, "44444444")
-//        clickOn(R.id.btnSave)
-//
-//        clickOn(R.id.fabAddContact)
-//        writeTextInField(R.id.etName, "EEE")
-//        writeTextInField(R.id.etSurname, "EEEEE")
-//        writeTextInField(R.id.etNumber, "55555555")
-//        clickOn(R.id.btnSave)
+        clickOn(R.id.fabAddContact)
+        writeTextInField(R.id.etName, "EEE")
+        writeTextInField(R.id.etSurname, "EEEEE")
+        writeTextInField(R.id.etNumber, "55555555")
+        clickOn(R.id.btnSave)
+
+        clickOn(R.id.fabAddContact)
+        writeTextInField(R.id.etName, "FFF")
+        writeTextInField(R.id.etSurname, "FFFFF")
+        writeTextInField(R.id.etNumber, "66666666")
+        clickOn(R.id.btnSave)
 
         clickOn(R.id.rvContacts)
         clickOn(R.id.btnCancel)
@@ -90,7 +89,6 @@ class ExampleInstrumentedTest {
         clickOn(R.id.rvContacts)
         clickOn(R.id.btnDelete)
 
-
     }
 
 }
@@ -100,7 +98,6 @@ fun clickOn(id: Int) {
         .check(matches(isDisplayed()))
         .perform(click())
 }
-
 
 fun writeTextInField(id: Int, text: String) {
     onView(withId(id))
