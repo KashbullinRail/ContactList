@@ -1,5 +1,6 @@
 package com.example.contactlist
 
+import android.content.Context
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.typeText
@@ -32,39 +33,44 @@ class ExampleInstrumentedTest {
 
     @Test
     fun checkAllComponentIsVisible_Success() {
-        onView(withId(R.id.fabAddContact))
-            .check(matches(isDisplayed()))
-            .perform(click())
 
-        val name = "Gevorg"
+        clickOnButton(R.id.fabAddContact)
+        clickOnButton(R.id.btnCancel)
 
-        onView(withId(R.id.etName))
-            .check(matches(isDisplayed()))
-            .perform(typeText(name))
-            .check(matches(withText(name)))
+        clickOnButton(R.id.fabAddContact)
+        writeTextInField(R.id.etName, "Ivan")
+        writeTextInField(R.id.etSurname, "Patanin")
+        writeTextInField(R.id.etNumber, "293423959")
+        clickOnButton(R.id.btnSave)
 
-        val surname = "Gegurgoshvili"
+        clickOnButton(R.id.fabAddContact)
+        writeTextInField(R.id.etName, "Pavel")
+        writeTextInField(R.id.etSurname, "Fedotov")
+        writeTextInField(R.id.etNumber, "37473328")
+        clickOnButton(R.id.btnSave)
 
-        onView(withId(R.id.etSurname))
-            .check(matches(isDisplayed()))
-            .perform(typeText(surname))
-            .check(matches(withText(surname)))
+        clickOnButton(R.id.fabAddContact)
+        writeTextInField(R.id.etName, "Fedor")
+        writeTextInField(R.id.etSurname, "Karamba")
+        writeTextInField(R.id.etNumber, "43675675")
+        clickOnButton(R.id.btnSave)
 
-        val phoneNumber = "34634636"
+        clickOnButton(R.id.rvContacts)
 
-        onView(withId(R.id.etNumber))
-            .check(matches(isDisplayed()))
-            .perform(typeText(phoneNumber))
-            .check(matches(withText(phoneNumber)))
-
-        onView(withId(R.id.btnSave))
-            .check(matches(isDisplayed()))
-            .perform(click())
-
-        onView(withId(R.id.rvContacts))
-            .check(matches(isDisplayed()))
-            .perform(click())
 
     }
 
+}
+
+fun clickOnButton(id: Int) {
+    onView(withId(id))
+        .check(matches(isDisplayed()))
+        .perform(click())
+}
+
+fun writeTextInField(id: Int, text: String) {
+    onView(withId(id))
+        .check(matches(isDisplayed()))
+        .perform(typeText(text))
+        .check(matches(withText(text)))
 }

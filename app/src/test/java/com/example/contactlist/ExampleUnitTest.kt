@@ -16,7 +16,6 @@ class ExampleUnitTest {
     @Test
     fun testViewModel() {
 
-
         val contactRepoTest = ContactRepositoryTest()
 
         val name = "Ivans"
@@ -33,7 +32,6 @@ class ExampleUnitTest {
 
         assertEquals(contact, lastContact)
         assertEquals(name, lastContact.name)
-
 
     }
 
