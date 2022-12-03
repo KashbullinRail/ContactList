@@ -9,6 +9,7 @@ import com.example.contactlist.databinding.ActivityEditContactBinding
 import com.example.contactlist.app.MainAction
 import com.example.contactlist.data.model.Contact
 import com.example.contactlist.app.Presenter
+import com.example.contactlist.app.ext.focusAndShowKeyboard
 import org.koin.android.ext.android.inject
 
 
@@ -29,6 +30,8 @@ class EditContactActivity : AppCompatActivity(), MainAction {
 
         binding = ActivityEditContactBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.etNameEdit.focusAndShowKeyboard()
 
         with(binding) {
             etNameEdit.setText(itemName)
