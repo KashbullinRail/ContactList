@@ -1,14 +1,17 @@
 package com.example.contactlist
 
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.Espresso.pressBack
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.typeText
+import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import com.example.contactlist.app.presentation.MainActivity
+import kotlinx.coroutines.delay
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.Rule
@@ -45,11 +48,29 @@ class ExampleInstrumentedTest {
         writeTextInField(R.id.etNumber, "22222222")
         clickOn(R.id.btnSave)
 
-        clickOn(R.id.fabAddContact)
-        writeTextInField(R.id.etName, "CCC")
-        writeTextInField(R.id.etSurname, "CCCCC")
-        writeTextInField(R.id.etNumber, "33333333")
-        clickOn(R.id.btnSave)
+        onView(withId(R.id.rvContacts))
+            .check(matches(isDisplayed()))
+            .check(matches(withText("AAA")))
+            .perform(click())
+
+
+//        clickOn(R.id.fabAddContact)
+//        writeTextInField(R.id.etName, "CCC")
+//        writeTextInField(R.id.etSurname, "CCCCC")
+//        writeTextInField(R.id.etNumber, "33333333")
+//        clickOn(R.id.btnSave)
+//
+//        clickOn(R.id.fabAddContact)
+//        writeTextInField(R.id.etName, "DDD")
+//        writeTextInField(R.id.etSurname, "DDDDD")
+//        writeTextInField(R.id.etNumber, "44444444")
+//        clickOn(R.id.btnSave)
+//
+//        clickOn(R.id.fabAddContact)
+//        writeTextInField(R.id.etName, "EEE")
+//        writeTextInField(R.id.etSurname, "EEEEE")
+//        writeTextInField(R.id.etNumber, "55555555")
+//        clickOn(R.id.btnSave)
 
         clickOn(R.id.rvContacts)
         clickOn(R.id.btnCancel)
@@ -63,6 +84,13 @@ class ExampleInstrumentedTest {
         clickOn(R.id.rvContacts)
         clickOn(R.id.btnDelete)
 
+        clickOn(R.id.rvContacts)
+        pressBack()
+
+        clickOn(R.id.rvContacts)
+        clickOn(R.id.btnDelete)
+
+
     }
 
 }
@@ -72,6 +100,7 @@ fun clickOn(id: Int) {
         .check(matches(isDisplayed()))
         .perform(click())
 }
+
 
 fun writeTextInField(id: Int, text: String) {
     onView(withId(id))
@@ -85,3 +114,4 @@ fun writeEditTextInField(id: Int, text: String) {
         .check(matches(isDisplayed()))
         .perform(typeText(text))
 }
+

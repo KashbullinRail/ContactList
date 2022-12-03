@@ -60,6 +60,7 @@ class MainActivity : AppCompatActivity(), LifecycleObserver, ItemListener {
 
         binding.fabAddContact.setOnClickListener {
             startActivity(Intent(this, AddContactActivity::class.java))
+            finish()
         }
 
     }
@@ -80,8 +81,8 @@ class MainActivity : AppCompatActivity(), LifecycleObserver, ItemListener {
             putExtra(KEY_ITEM_NAME, nameItem)
             putExtra(KEY_ITEM_SURNAME, surnameItem)
             putExtra(KEY_ITEM_NUMBER, numberItem)
-
         })
+        finish()
     }
 
     override fun onDestroy() {
