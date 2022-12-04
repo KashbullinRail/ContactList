@@ -10,6 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:nextFocusDown="@id/etSurname"
+        android:inputType="textPersonName|textAutoComplete|textCapWords"
         android:hint="@string/Name" />
 
     <EditText
@@ -17,6 +19,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:nextFocusDown="@id/etNumber"
+        android:inputType="textPersonName|textAutoComplete|textCapWords"
         android:hint="@string/Surname" />
 
     <EditText
@@ -24,6 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:inputType="phone"
         android:hint="@string/PhoneNumber" />
 
 

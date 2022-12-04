@@ -13,6 +13,8 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="@string/Name"
+        android:nextFocusDown="@id/etSurnameEdit"
+        android:inputType="textPersonName|textAutoComplete"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="155dp" />
@@ -22,6 +24,8 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="@string/Surname"
+        android:nextFocusDown="@id/etNumberEdit"
+        android:inputType="textPersonName|textAutoComplete"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etNameEdit" />
@@ -31,6 +35,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="@string/PhoneNumber"
+        android:inputType="phone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etSurnameEdit" />

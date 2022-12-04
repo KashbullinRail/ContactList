@@ -21,10 +21,12 @@
         </activity>
         <activity
             android:name=".app.presentation.AddContactActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"/>
         <activity
             android:name=".app.presentation.EditContactActivity"
-            android:exported="false"/>
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"/>
     </application>
 
 </manifest>
