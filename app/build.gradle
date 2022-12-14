@@ -5,8 +5,23 @@ plugins {
     id 'realm-android'
 }
 
+// keystore.properties file, in the rootProject folder.
+def keystorePropertiesFile = rootProject.file("keystore.properties")
+// Initialize a new Properties() object called keystoreProperties.
+def keystoreProperties = new Properties()
+// Load your keystore.properties file into the keystoreProperties object.
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
 android {
 
+    signingConfigs {
+        release {
+            keyAlias 'keyContactList'
+            storeFile file('D:\\android\\release\\ContactList\\contactListKey.jks')
+            storePassword '1q2w3e4r'
+            keyPassword '1q2w3e4r'
+        }
+    }
     compileSdk 33
 
     defaultConfig {
@@ -39,6 +54,8 @@ android {
             buildConfigField "String", "APPLICATION_ID_SUFFIX", "\"\""
             buildConfigField "boolean", "IS_ANALYTICS_ENABLED", "true"
             buildConfigField "boolean", encrypt_prefs_name, "true"
+            signingConfig signingConfigs.release
+            multiDexEnabled true
         }
         preview {
             debuggable true
@@ -69,6 +86,7 @@ android {
             buildConfigField "String", "APPLICATION_ID_SUFFIX", "\".debug\""
             buildConfigField "boolean", "IS_ANALYTICS_ENABLED", "true"
             buildConfigField "boolean", encrypt_prefs_name, "false"
+            signingConfig signingConfigs.release
         }
 
     }
