@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    
+
     compileSdk 33
 
     defaultConfig {
@@ -104,6 +104,12 @@ android {
             minSdkVersion '23'
             versionNameSuffix "-minApi23"
         }
+        minApi29 {
+            dimension 'api'
+            minSdkVersion '29'
+            versionNameSuffix "-minApi29"
+        }
+
     }
 
     compileOptions {
