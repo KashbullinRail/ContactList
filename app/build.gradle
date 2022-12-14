@@ -6,12 +6,13 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.example.contactlist"
         minSdk 23
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -19,21 +20,107 @@ android {
     }
 
     buildTypes {
+
+        def mySetting1 = true
+        def mySetting2 = false
+
+        def encrypt_prefs_name = "SOULD_ENCRYPT_NAME"
+
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            manifestPlaceholders = [
+                    crashlyticsCollectionEnabled: "true",
+                    applicationIdSuffix: "",
+                    someProperty1: mySetting1,
+                    someProperty2: mySetting2
+            ]
+            buildConfigField "String", "APPLICATION_ID_SUFFIX", "\"\""
+            buildConfigField "boolean", "IS_ANALYTICS_ENABLED", "true"
+            buildConfigField "boolean", encrypt_prefs_name, "true"
+        }
+        preview {
+            debuggable true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            manifestPlaceholders = [
+                    crashlyticsCollectionEnabled: "false",
+                    applicationIdSuffix: ".preview",
+                    someProperty1: mySetting1,
+                    someProperty2: mySetting2
+            ]
+            applicationIdSuffix ".preview"
+            versionNameSuffix '-preview'
+            buildConfigField "String", "APPLICATION_ID_SUFFIX", "\".preview\""
+            buildConfigField "boolean", "IS_ANALYTICS_ENABLED", "true"
+            buildConfigField "boolean", encrypt_prefs_name, "true"
+        }
+        debug {
+            debuggable true
+            manifestPlaceholders = [
+                    crashlyticsCollectionEnabled: "false",
+                    applicationIdSuffix: ".debug",
+                    someProperty1: mySetting1,
+                    someProperty2: mySetting2
+            ]
+            applicationIdSuffix ".debug"
+            versionNameSuffix '-debug'
+            buildConfigField "String", "APPLICATION_ID_SUFFIX", "\".debug\""
+            buildConfigField "boolean", "IS_ANALYTICS_ENABLED", "true"
+            buildConfigField "boolean", encrypt_prefs_name, "false"
+        }
+
+    }
+
+    sourceSets {
+        release {
+            java.srcDirs = ['src/release/java']
+            res.srcDirs = ['src/release/res']
+        }
+        preview {
+            manifest.srcFile 'src/debug/AndroidManifest.xml'
+            java.srcDirs = ['src/debug/java']
+            res.srcDirs = ['src/debug/res']
+        }
+        debug {
+            manifest.srcFile 'src/debug/AndroidManifest.xml'
+            java.srcDirs = ['src/debug/java']
+            res.srcDirs = ['src/debug/res']
         }
     }
+
+    flavorDimensions 'api', 'version'
+
+    productFlavors {
+        demo {
+            dimension 'version'
+        }
+        full {
+            dimension 'version'
+        }
+        minApi23 {
+            dimension 'api'
+            minSdkVersion '23'
+            versionNameSuffix "-minApi23"
+        }
+    }
+
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = JavaVersion.VERSION_11.toString()
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError true
     }
     buildFeatures {
         viewBinding true
     }
+
 }
 
 dependencies {
@@ -45,31 +132,26 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-
+    // Koin Core features
+    implementation "io.insert-koin:koin-core:$koin_version"
+    // Koin main features for Android
+    implementation "io.insert-koin:koin-android:$koin_android_version"
+    //Inject
+    implementation 'javax.inject:javax.inject:1'
     //Dagger
     implementation 'com.google.dagger:dagger:2.44.2'
     kapt 'com.google.dagger:dagger-compiler:2.44.2'
-    implementation 'javax.inject:javax.inject:1'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     androidTestImplementation 'androidx.test:runner:1.5.1'
     androidTestImplementation 'androidx.test:rules:1.5.0'
-
-    // Koin Core features
-    implementation "io.insert-koin:koin-core:$koin_version"
     // Koin Test features
     testImplementation "io.insert-koin:koin-test:$koin_version"
-
     // Koin for JUnit 4
     testImplementation "io.insert-koin:koin-test-junit4:$koin_version"
     // Koin for JUnit 5
     testImplementation "io.insert-koin:koin-test-junit5:$koin_version"
-
-    // Koin main features for Android
-    implementation "io.insert-koin:koin-android:$koin_android_version"
-    // No more koin-android-viewmodel, koin-android-scope, koin-android-fragment
-
 
 }
