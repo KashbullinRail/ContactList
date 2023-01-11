@@ -1,4 +1,4 @@
-package com.example.contactlist.app.ext
+package com.example.contactlist.ext
 
 
 import android.app.Activity
@@ -6,7 +6,6 @@ import android.content.Context
 import android.view.inputmethod.InputMethodManager
 import android.view.View
 import android.view.ViewTreeObserver
-
 
 
 fun Activity.hideKeyboard() {
@@ -24,7 +23,6 @@ fun View.focusAndShowKeyboard() {
             }
         }
     }
-
     requestFocus()
     if (hasWindowFocus()){
         showTheKeyboardNow()

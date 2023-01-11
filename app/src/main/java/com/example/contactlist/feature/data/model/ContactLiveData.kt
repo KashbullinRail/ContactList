@@ -1,8 +1,7 @@
-package com.example.contactlist.data.model
+package com.example.contactlist.feature.data.model
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.example.contactlist.data.model.Contact
 
 
 class ContactLiveData : MutableLiveData<List<Contact>>() {
@@ -16,4 +15,5 @@ class ContactLiveData : MutableLiveData<List<Contact>>() {
         super.onInactive()
         Log.d("ContactLiveData", "ContactLiveData - onInactive")
     }
+
 }

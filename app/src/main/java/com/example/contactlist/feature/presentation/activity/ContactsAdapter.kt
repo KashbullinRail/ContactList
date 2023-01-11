@@ -1,4 +1,4 @@
-package com.example.contactlist.domain.adapter
+package com.example.contactlist.feature.presentation.activity
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,8 +6,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.contactlist.databinding.ItemContactBinding
-import com.example.contactlist.data.model.Contact
-import com.example.contactlist.app.ItemListener
+import com.example.contactlist.feature.data.model.Contact
+import com.example.contactlist.feature.presentation.ItemListener
 
 
 class ContactsAdapter(val itemListener: ItemListener) :
@@ -32,7 +32,6 @@ class ContactsAdapter(val itemListener: ItemListener) :
             itemView.setOnClickListener {
                 itemListener.onClick(contact)
             }
-
         }
     }
 

@@ -1,7 +1,6 @@
-package com.example.contactlist.data.repository
+package com.example.contactlist.feature.data.model
 
-import com.example.contactlist.data.model.Contact
-import com.example.contactlist.app.repository.ContactRepository
+import com.example.contactlist.feature.data.ContactRepository
 import io.realm.Realm
 import io.realm.Sort
 import io.realm.kotlin.deleteFromRealm
@@ -43,15 +42,14 @@ class ContactRepositoryImpl(
                     .equalTo("id", "$id")
                     .findFirst()
                 data?.deleteFromRealm()
-
             }
-
         }
+
     }
+
 
     override fun getContacts(): List<Contact> {
         return realm.where(Contact::class.java).findAll().sort("surname", Sort.ASCENDING)
     }
-
 
 }

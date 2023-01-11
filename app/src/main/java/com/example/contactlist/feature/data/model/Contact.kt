@@ -1,4 +1,4 @@
-package com.example.contactlist.data.model
+package com.example.contactlist.feature.data.model
 
 import io.realm.RealmModel
 import io.realm.annotations.PrimaryKey
@@ -8,7 +8,6 @@ import io.realm.annotations.Required
 
 @RealmClass
 open class Contact : RealmModel {
-
     @PrimaryKey
     var id: String = ""
 
@@ -20,5 +19,4 @@ open class Contact : RealmModel {
 
     @Required
     var number: String? = ""
-
 }

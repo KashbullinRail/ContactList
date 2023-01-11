@@ -1,4 +1,4 @@
-package com.example.contactlist.app.presentation
+package com.example.contactlist.feature.presentation.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,11 +12,9 @@ import com.example.contactlist.KEY_ITEM_ID
 import com.example.contactlist.KEY_ITEM_NAME
 import com.example.contactlist.KEY_ITEM_NUMBER
 import com.example.contactlist.KEY_ITEM_SURNAME
-import com.example.contactlist.data.model.Contact
+import com.example.contactlist.feature.data.model.Contact
 import com.example.contactlist.databinding.ActivityMainBinding
-import com.example.contactlist.domain.adapter.ContactsAdapter
-import com.example.contactlist.app.ItemListener
-import com.example.contactlist.app.viewModel.MainViewModel
+import com.example.contactlist.feature.presentation.ItemListener
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -65,7 +63,6 @@ class MainActivity : AppCompatActivity(), LifecycleObserver, ItemListener {
 
     }
 
-
     override fun onClick(contact: Contact?) {
         val idItem = contact?.id.toString()
         val nameItem = contact?.name.toString()
@@ -89,6 +86,5 @@ class MainActivity : AppCompatActivity(), LifecycleObserver, ItemListener {
         super.onDestroy()
         lifecycle.removeObserver(defaultLifecycleObserver)
     }
-
 
 }

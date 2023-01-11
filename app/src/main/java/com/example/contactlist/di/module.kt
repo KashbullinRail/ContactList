@@ -1,9 +1,9 @@
 package com.example.contactlist.di
 
-import com.example.contactlist.app.repository.ContactRepository
-import com.example.contactlist.data.repository.ContactRepositoryImpl
-import com.example.contactlist.app.viewModel.MainViewModel
-import com.example.contactlist.app.Presenter
+import com.example.contactlist.feature.data.ContactRepository
+import com.example.contactlist.feature.data.model.ContactRepositoryImpl
+import com.example.contactlist.feature.presentation.activity.MainViewModel
+import com.example.contactlist.feature.domain.Presenter
 import io.realm.Realm
 import io.realm.RealmConfiguration
 import org.koin.android.ext.koin.androidApplication
@@ -23,7 +23,6 @@ val appModule = module {
             .allowWritesOnUiThread(true)
             .allowQueriesOnUiThread(true)
             .build()
-
         Realm.setDefaultConfiguration(configuration)
         Realm.getDefaultInstance()
     }
@@ -39,4 +38,5 @@ val appModule = module {
     single {
         Presenter(contactRepository = get())
     }
+
 }

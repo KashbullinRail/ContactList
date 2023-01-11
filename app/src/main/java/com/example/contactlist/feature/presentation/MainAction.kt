@@ -1,6 +1,6 @@
-package com.example.contactlist.app
+package com.example.contactlist.feature.presentation
 
-import com.example.contactlist.data.model.Contact
+import com.example.contactlist.feature.data.model.Contact
 
 
 interface MainAction {

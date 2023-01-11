@@ -1,4 +1,4 @@
-package com.example.contactlist.app.presentation
+package com.example.contactlist.feature.presentation.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,10 +6,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.contactlist.*
 import com.example.contactlist.databinding.ActivityEditContactBinding
-import com.example.contactlist.app.MainAction
-import com.example.contactlist.data.model.Contact
-import com.example.contactlist.app.Presenter
-import com.example.contactlist.app.ext.focusAndShowKeyboard
+import com.example.contactlist.feature.presentation.MainAction
+import com.example.contactlist.feature.data.model.Contact
+import com.example.contactlist.feature.domain.Presenter
+import com.example.contactlist.ext.focusAndShowKeyboard
 import org.koin.android.ext.android.inject
 
 
@@ -37,16 +37,15 @@ class EditContactActivity : AppCompatActivity(), MainAction {
             etNameEdit.setText(itemName)
             etSurnameEdit.setText(itemSurname)
             etNumberEdit.setText(itemNumber)
-        }
 
-        binding.btnCancel.setOnClickListener {
-            startMainActivity()
-        }
+            btnCancel.setOnClickListener {
+                startMainActivity()
+            }
 
-        with(binding) {
             btnSaveEdit.setOnClickListener {
                 phoneNumberRevisor()
             }
+
             btnDelete.setOnClickListener {
                 presenter.editContact(
                     id = itemID.toString(),
@@ -85,6 +84,5 @@ class EditContactActivity : AppCompatActivity(), MainAction {
 
     override fun onAddContact(contacts: List<Contact>) {
     }
-
 
 }

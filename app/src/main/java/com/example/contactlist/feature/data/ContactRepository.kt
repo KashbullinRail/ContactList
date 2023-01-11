@@ -1,6 +1,6 @@
-package com.example.contactlist.app.repository
+package com.example.contactlist.feature.data
 
-import com.example.contactlist.data.model.Contact
+import com.example.contactlist.feature.data.model.Contact
 
 interface ContactRepository {
 

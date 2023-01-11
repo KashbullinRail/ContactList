@@ -1,4 +1,4 @@
-package com.example.contactlist.app.ext
+package com.example.contactlist.ext
 
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.DefaultLifecycleObserver

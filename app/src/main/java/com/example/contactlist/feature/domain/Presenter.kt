@@ -1,6 +1,7 @@
-package com.example.contactlist.app
+package com.example.contactlist.feature.domain
 
-import com.example.contactlist.app.repository.ContactRepository
+import com.example.contactlist.feature.data.ContactRepository
+import com.example.contactlist.feature.presentation.MainAction
 
 
 class Presenter(private val contactRepository: ContactRepository) {

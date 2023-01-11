@@ -1,4 +1,4 @@
-package com.example.contactlist.app.app
+package com.example.contactlist
 
 import android.app.Application
 import com.example.contactlist.di.appModule
@@ -18,4 +18,5 @@ class App : Application() {
             modules(appModule)
         }
     }
+
 }
